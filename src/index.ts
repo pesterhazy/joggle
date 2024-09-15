@@ -1,4 +1,4 @@
-type JoggleExpression = boolean | number | string | [string, ...JoggleExpression[]];
+type JoggleExpression = boolean | number | string | [string, ...JoggleExpression[]] | [];
 type Environment = Record<string, (...args: any[]) => any>;
 
 export function evalJoggle(expression: JoggleExpression, env: Environment = {}): any {
@@ -11,7 +11,7 @@ export function evalJoggle(expression: JoggleExpression, env: Environment = {}):
       throw new Error('Invalid expression');
     }
 
-    const [operator, ...args] = expression;
+    const [operator, ...args] = expression as [string, ...JoggleExpression[]];
     
     switch (operator) {
       case 'or':
