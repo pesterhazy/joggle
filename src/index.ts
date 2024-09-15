@@ -1,5 +1,3 @@
-function main() {
-  console.log("hello world");
+export function evalJoggle(value: boolean): boolean {
+  return value;
 }
-
-main();
